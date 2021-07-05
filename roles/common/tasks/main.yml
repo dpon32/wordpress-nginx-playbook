@@ -1,6 +1,6 @@
 ---
-- name: Install python-selinux
-  apt: name=python-selinux state=present
+- name: Install libselinux-python
+  apt: name=libselinux-python state=present
 
 - name: Reload ansible_facts
   setup:
