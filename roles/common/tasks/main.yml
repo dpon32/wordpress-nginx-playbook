@@ -11,6 +11,6 @@
 - name: Reload ansible_facts
   setup:
 
-- name: Set up iptables rules
-  copy: src=iptables-save dest=/etc/sysconfig/iptables
-  notify: restart iptables
+#- name: Set up iptables rules
+#  copy: src=iptables-save dest=/etc/sysconfig/iptables
+#  notify: restart iptables
