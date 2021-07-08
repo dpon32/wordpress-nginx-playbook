@@ -11,6 +11,14 @@
 - name: Reload ansible_facts
   setup:
 
-#- name: Set up iptables rules
-#  copy: src=iptables-save dest=/etc/sysconfig/iptables
-#  notify: restart iptables
+- name: Install iptables service
+  apt: name=iptables state=present
+
+- name: Set up iptables rules
+  iptables:
+    chain: INPUT
+    ctstate: ESTABLISHED,RELATED
+    jump: ACCEPT
+    protocol: tcp
+    destination_port: 8080
+  become: yes
